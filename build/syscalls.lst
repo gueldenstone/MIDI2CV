@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 1
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 1
   28:src/syscalls.c **** **   3. Neither the name of Ac6 nor the names of its contributors
   29:src/syscalls.c **** **      may be used to endorse or promote products derived from this software
   30:src/syscalls.c **** **      without specific prior written permission.
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 2
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s 			page 2
 
 
   31:src/syscalls.c **** **
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 1
   42              		.syntax unified
   43              		.thumb
   44              		.thumb_func
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 3
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s 			page 3
 
 
   45              		.fpu fpv4-sp-d16
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 1
   91 000e 08BD     		pop	{r3, pc}
   92              		.cfi_endproc
   93              	.LFE27:
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 4
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s 			page 4
 
 
   95              		.section	.text._exit,"ax",%progbits
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 1
  143              		@ frame_needed = 0, uses_anonymous_args = 0
  144              		.loc 1 92 1 is_stmt 0 view .LVU18
  145 0000 70B5     		push	{r4, r5, r6, lr}
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 5
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s 			page 5
 
 
  146              	.LCFI2:
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 1
  189              	.LFE29:
  191              		.section	.text._write,"ax",%progbits
  192              		.align	1
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 6
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s 			page 6
 
 
  193              		.global	_write
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 1
  238              	.LVL17:
  107:src/syscalls.c **** 	{
  239              		.loc 1 107 42 discriminator 3 view .LVU46
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 7
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s 			page 7
 
 
  240 0016 F7E7     		b	.L14
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 1
  282              		.loc 1 123 2 is_stmt 1 view .LVU58
  283              		.loc 1 123 16 is_stmt 0 view .LVU59
  284 000a 0A4A     		ldr	r2, .L25
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 8
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s 			page 8
 
 
  285 000c 1068     		ldr	r0, [r2]
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 1
  321              		.loc 1 129 10 is_stmt 0 view .LVU72
  322 002c 4FF0FF30 		mov	r0, #-1
  323 0030 F3E7     		b	.L18
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 9
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s 			page 9
 
 
  324              	.L26:
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 1
  145:src/syscalls.c **** 	st->st_mode = S_IFCHR;
  373              		.loc 1 145 2 view .LVU78
  374              		.loc 1 145 14 is_stmt 0 view .LVU79
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 10
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s 			page 10
 
 
  375 0000 4FF40053 		mov	r3, #8192
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 1
  423              		.cfi_startproc
  424              		@ args = 0, pretend = 0, frame = 0
  425              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 11
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s 			page 11
 
 
  426              		@ link register save eliminated.
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 1
  475              		.align	1
  476              		.global	_wait
  477              		.syntax unified
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 12
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s 			page 12
 
 
  478              		.thumb
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 1
  526              		.cfi_def_cfa_offset 8
  527              		.cfi_offset 3, -8
  528              		.cfi_offset 14, -4
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 13
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s 			page 13
 
 
  173:src/syscalls.c **** 	errno = ENOENT;
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 1
  182:src/syscalls.c **** int _stat(char *file, struct stat *st)
  183:src/syscalls.c **** {
  578              		.loc 1 183 1 is_stmt 1 view -0
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 14
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s 			page 14
 
 
  579              		.cfi_startproc
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 1
  626 000e 08BD     		pop	{r3, pc}
  627              		.cfi_endproc
  628              	.LFE41:
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 15
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s 			page 15
 
 
  630              		.section	.text._fork,"ax",%progbits
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 1
  678 0000 08B5     		push	{r3, lr}
  679              	.LCFI11:
  680              		.cfi_def_cfa_offset 8
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 16
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s 			page 16
 
 
  681              		.cfi_offset 3, -8
@@ -949,56 +949,56 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 1
  730              		.file 11 "/usr/local/Caskroom/gcc-arm-embedded/9-2019-q4-major/gcc-arm-none-eabi-9-2019-q4-major/a
  731              		.file 12 "/usr/local/Caskroom/gcc-arm-embedded/9-2019-q4-major/gcc-arm-none-eabi-9-2019-q4-major/a
  732              		.file 13 "/usr/local/Caskroom/gcc-arm-embedded/9-2019-q4-major/gcc-arm-none-eabi-9-2019-q4-major/a
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 17
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s 			page 17
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 syscalls.c
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:18     .text.initialise_monitor_handles:0000000000000000 $t
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:26     .text.initialise_monitor_handles:0000000000000000 initialise_monitor_handles
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:40     .text._getpid:0000000000000000 $t
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:47     .text._getpid:0000000000000000 _getpid
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:62     .text._kill:0000000000000000 $t
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:69     .text._kill:0000000000000000 _kill
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:96     .text._exit:0000000000000000 $t
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:103    .text._exit:0000000000000000 _exit
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:130    .text._read:0000000000000000 $t
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:137    .text._read:0000000000000000 _read
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:192    .text._write:0000000000000000 $t
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:199    .text._write:0000000000000000 _write
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:251    .text._sbrk:0000000000000000 $t
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:258    .text._sbrk:0000000000000000 _sbrk
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:327    .text._sbrk:0000000000000034 $d
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:333    .text._close:0000000000000000 $t
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:340    .text._close:0000000000000000 _close
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:358    .text._fstat:0000000000000000 $t
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:365    .text._fstat:0000000000000000 _fstat
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:387    .text._isatty:0000000000000000 $t
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:394    .text._isatty:0000000000000000 _isatty
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:412    .text._lseek:0000000000000000 $t
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:419    .text._lseek:0000000000000000 _lseek
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:437    .text._open:0000000000000000 $t
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:444    .text._open:0000000000000000 _open
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:475    .text._wait:0000000000000000 $t
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:482    .text._wait:0000000000000000 _wait
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:509    .text._unlink:0000000000000000 $t
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:516    .text._unlink:0000000000000000 _unlink
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:543    .text._times:0000000000000000 $t
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:550    .text._times:0000000000000000 _times
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:568    .text._stat:0000000000000000 $t
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:575    .text._stat:0000000000000000 _stat
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:597    .text._link:0000000000000000 $t
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:604    .text._link:0000000000000000 _link
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:631    .text._fork:0000000000000000 $t
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:638    .text._fork:0000000000000000 _fork
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:663    .text._execve:0000000000000000 $t
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:670    .text._execve:0000000000000000 _execve
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:715    .data.environ:0000000000000000 environ
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:702    .bss.__env:0000000000000000 __env
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:699    .bss.__env:0000000000000000 $d
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:705    .bss.heap_end.7386:0000000000000000 $d
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:709    .bss.heap_end.7386:0000000000000000 heap_end.7386
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:712    .data.environ:0000000000000000 $d
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:18     .text.initialise_monitor_handles:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:26     .text.initialise_monitor_handles:0000000000000000 initialise_monitor_handles
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:40     .text._getpid:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:47     .text._getpid:0000000000000000 _getpid
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:62     .text._kill:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:69     .text._kill:0000000000000000 _kill
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:96     .text._exit:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:103    .text._exit:0000000000000000 _exit
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:130    .text._read:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:137    .text._read:0000000000000000 _read
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:192    .text._write:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:199    .text._write:0000000000000000 _write
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:251    .text._sbrk:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:258    .text._sbrk:0000000000000000 _sbrk
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:327    .text._sbrk:0000000000000034 $d
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:333    .text._close:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:340    .text._close:0000000000000000 _close
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:358    .text._fstat:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:365    .text._fstat:0000000000000000 _fstat
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:387    .text._isatty:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:394    .text._isatty:0000000000000000 _isatty
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:412    .text._lseek:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:419    .text._lseek:0000000000000000 _lseek
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:437    .text._open:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:444    .text._open:0000000000000000 _open
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:475    .text._wait:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:482    .text._wait:0000000000000000 _wait
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:509    .text._unlink:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:516    .text._unlink:0000000000000000 _unlink
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:543    .text._times:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:550    .text._times:0000000000000000 _times
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:568    .text._stat:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:575    .text._stat:0000000000000000 _stat
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:597    .text._link:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:604    .text._link:0000000000000000 _link
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:631    .text._fork:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:638    .text._fork:0000000000000000 _fork
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:663    .text._execve:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:670    .text._execve:0000000000000000 _execve
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:715    .data.environ:0000000000000000 environ
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:702    .bss.__env:0000000000000000 __env
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:699    .bss.__env:0000000000000000 $d
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:705    .bss.heap_end.7386:0000000000000000 $d
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:709    .bss.heap_end.7386:0000000000000000 heap_end.7386
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccowMZR7.s:712    .data.environ:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 __errno

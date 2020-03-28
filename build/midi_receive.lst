@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
   42              	.L2:
   43 0008 00000000 		.word	midibyte
   44              		.cfi_endproc
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 2
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 2
 
 
   45              	.LFE130:
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
   91 002c 1A69     		ldr	r2, [r3, #16]
   92 002e 42F00102 		orr	r2, r2, #1
   93 0032 1A61     		str	r2, [r3, #16]
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 3
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 3
 
 
   25:src/midi_receive.c **** 	USART1->BRR |= SystemCoreClock/31250; /* baud rate is 3125000baud */
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
   19:Drivers/CMSIS/Include/core_cm4.h ****  * distributed under the License is distributed on an AS IS BASIS, WITHOUT
   20:Drivers/CMSIS/Include/core_cm4.h ****  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   21:Drivers/CMSIS/Include/core_cm4.h ****  * See the License for the specific language governing permissions and
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 4
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 4
 
 
   22:Drivers/CMSIS/Include/core_cm4.h ****  * limitations under the License.
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
   76:Drivers/CMSIS/Include/core_cm4.h **** #if defined ( __CC_ARM )
   77:Drivers/CMSIS/Include/core_cm4.h ****   #if defined __TARGET_FPU_VFP
   78:Drivers/CMSIS/Include/core_cm4.h ****     #if defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 5
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 5
 
 
   79:Drivers/CMSIS/Include/core_cm4.h ****       #define __FPU_USED       1U
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
  133:Drivers/CMSIS/Include/core_cm4.h ****     #define __FPU_USED         0U
  134:Drivers/CMSIS/Include/core_cm4.h ****   #endif
  135:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 6
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 6
 
 
  136:Drivers/CMSIS/Include/core_cm4.h **** #elif defined ( __TASKING__ )
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
  190:Drivers/CMSIS/Include/core_cm4.h ****   #endif
  191:Drivers/CMSIS/Include/core_cm4.h **** 
  192:Drivers/CMSIS/Include/core_cm4.h ****   #ifndef __MPU_PRESENT
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 7
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 7
 
 
  193:Drivers/CMSIS/Include/core_cm4.h ****     #define __MPU_PRESENT             0U
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
  247:Drivers/CMSIS/Include/core_cm4.h **** */
  248:Drivers/CMSIS/Include/core_cm4.h **** 
  249:Drivers/CMSIS/Include/core_cm4.h **** /**
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 8
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 8
 
 
  250:Drivers/CMSIS/Include/core_cm4.h ****   \ingroup    CMSIS_core_register
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
  304:Drivers/CMSIS/Include/core_cm4.h ****   } b;                                   /*!< Structure used for bit  access */
  305:Drivers/CMSIS/Include/core_cm4.h ****   uint32_t w;                            /*!< Type      used for word access */
  306:Drivers/CMSIS/Include/core_cm4.h **** } IPSR_Type;
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 9
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 9
 
 
  307:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
  361:Drivers/CMSIS/Include/core_cm4.h **** #define xPSR_ICI_IT_1_Pos                  10U                                            /*!< xPSR
  362:Drivers/CMSIS/Include/core_cm4.h **** #define xPSR_ICI_IT_1_Msk                  (0x3FUL << xPSR_ICI_IT_1_Pos)                  /*!< xPSR
  363:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 10
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 10
 
 
  364:Drivers/CMSIS/Include/core_cm4.h **** #define xPSR_ISR_Pos                        0U                                            /*!< xPSR
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
  418:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint8_t  IP[240U];               /*!< Offset: 0x300 (R/W)  Interrupt Priority Register (8Bi
  419:Drivers/CMSIS/Include/core_cm4.h ****         uint32_t RESERVED5[644U];
  420:Drivers/CMSIS/Include/core_cm4.h ****   __OM  uint32_t STIR;                   /*!< Offset: 0xE00 ( /W)  Software Trigger Interrupt Regis
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 11
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 11
 
 
  421:Drivers/CMSIS/Include/core_cm4.h **** }  NVIC_Type;
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
  475:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CPUID_PARTNO_Pos                4U                                            /*!< SCB 
  476:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CPUID_PARTNO_Msk               (0xFFFUL << SCB_CPUID_PARTNO_Pos)              /*!< SCB 
  477:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 12
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 12
 
 
  478:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CPUID_REVISION_Pos              0U                                            /*!< SCB 
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
  532:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_AIRCR_VECTCLRACTIVE_Pos         1U                                            /*!< SCB 
  533:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_AIRCR_VECTCLRACTIVE_Msk        (1UL << SCB_AIRCR_VECTCLRACTIVE_Pos)           /*!< SCB 
  534:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 13
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 13
 
 
  535:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_AIRCR_VECTRESET_Pos             0U                                            /*!< SCB 
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
  589:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_SHCSR_SYSTICKACT_Pos           11U                                            /*!< SCB 
  590:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_SHCSR_SYSTICKACT_Msk           (1UL << SCB_SHCSR_SYSTICKACT_Pos)              /*!< SCB 
  591:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 14
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 14
 
 
  592:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_SHCSR_PENDSVACT_Pos            10U                                            /*!< SCB 
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
  646:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_STKERR_Pos               (SCB_CFSR_BUSFAULTSR_Pos + 4U)                  /*!< SCB 
  647:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_STKERR_Msk               (1UL << SCB_CFSR_STKERR_Pos)                    /*!< SCB 
  648:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 15
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 15
 
 
  649:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_UNSTKERR_Pos             (SCB_CFSR_BUSFAULTSR_Pos + 3U)                  /*!< SCB 
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
  703:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_DFSR_HALTED_Pos                 0U                                            /*!< SCB 
  704:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_DFSR_HALTED_Msk                (1UL /*<< SCB_DFSR_HALTED_Pos*/)               /*!< SCB 
  705:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 16
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 16
 
 
  706:Drivers/CMSIS/Include/core_cm4.h **** /*@} end of group CMSIS_SCB */
@@ -958,7 +958,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
  760:Drivers/CMSIS/Include/core_cm4.h **** {
  761:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t CTRL;                   /*!< Offset: 0x000 (R/W)  SysTick Control and Status Regis
  762:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t LOAD;                   /*!< Offset: 0x004 (R/W)  SysTick Reload Value Register */
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 17
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 17
 
 
  763:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t VAL;                    /*!< Offset: 0x008 (R/W)  SysTick Current Value Register *
@@ -1018,7 +1018,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
  817:Drivers/CMSIS/Include/core_cm4.h ****     __OM  uint32_t   u32;                /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 32-bit */
  818:Drivers/CMSIS/Include/core_cm4.h ****   }  PORT [32U];                         /*!< Offset: 0x000 ( /W)  ITM Stimulus Port Registers */
  819:Drivers/CMSIS/Include/core_cm4.h ****         uint32_t RESERVED0[864U];
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 18
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 18
 
 
  820:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t TER;                    /*!< Offset: 0xE00 (R/W)  ITM Trace Enable Register */
@@ -1078,7 +1078,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
  874:Drivers/CMSIS/Include/core_cm4.h **** #define ITM_TCR_TSENA_Msk                  (1UL << ITM_TCR_TSENA_Pos)                     /*!< ITM 
  875:Drivers/CMSIS/Include/core_cm4.h **** 
  876:Drivers/CMSIS/Include/core_cm4.h **** #define ITM_TCR_ITMENA_Pos                  0U                                            /*!< ITM 
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 19
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 19
 
 
  877:Drivers/CMSIS/Include/core_cm4.h **** #define ITM_TCR_ITMENA_Msk                 (1UL /*<< ITM_TCR_ITMENA_Pos*/)                /*!< ITM 
@@ -1138,7 +1138,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
  931:Drivers/CMSIS/Include/core_cm4.h ****         uint32_t RESERVED1[1U];
  932:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t COMP2;                  /*!< Offset: 0x040 (R/W)  Comparator Register 2 */
  933:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t MASK2;                  /*!< Offset: 0x044 (R/W)  Mask Register 2 */
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 20
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 20
 
 
  934:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t FUNCTION2;              /*!< Offset: 0x048 (R/W)  Function Register 2 */
@@ -1198,7 +1198,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
  988:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_CTRL_POSTINIT_Msk              (0xFUL << DWT_CTRL_POSTINIT_Pos)            /*!< DWT CTR
  989:Drivers/CMSIS/Include/core_cm4.h **** 
  990:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_CTRL_POSTPRESET_Pos             1U                                         /*!< DWT CTR
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 21
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 21
 
 
  991:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_CTRL_POSTPRESET_Msk            (0xFUL << DWT_CTRL_POSTPRESET_Pos)          /*!< DWT CTR
@@ -1258,7 +1258,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
 1045:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_FUNCTION_FUNCTION_Pos           0U                                         /*!< DWT FUN
 1046:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_FUNCTION_FUNCTION_Msk          (0xFUL /*<< DWT_FUNCTION_FUNCTION_Pos*/)    /*!< DWT FUN
 1047:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 22
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 22
 
 
 1048:Drivers/CMSIS/Include/core_cm4.h **** /*@}*/ /* end of group CMSIS_DWT */
@@ -1318,7 +1318,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
 1102:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_FFSR_TCPresent_Msk             (0x1UL << TPI_FFSR_TCPresent_Pos)           /*!< TPI FFS
 1103:Drivers/CMSIS/Include/core_cm4.h **** 
 1104:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_FFSR_FtStopped_Pos              1U                                         /*!< TPI FFS
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 23
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 23
 
 
 1105:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_FFSR_FtStopped_Msk             (0x1UL << TPI_FFSR_FtStopped_Pos)           /*!< TPI FFS
@@ -1378,7 +1378,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
 1159:Drivers/CMSIS/Include/core_cm4.h **** 
 1160:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_FIFO1_ETM_bytecount_Pos        24U                                         /*!< TPI FIF
 1161:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_FIFO1_ETM_bytecount_Msk        (0x3UL << TPI_FIFO1_ETM_bytecount_Pos)      /*!< TPI FIF
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 24
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 24
 
 
 1162:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -1438,7 +1438,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
 1216:Drivers/CMSIS/Include/core_cm4.h ****   \brief    Type definitions for the Memory Protection Unit (MPU)
 1217:Drivers/CMSIS/Include/core_cm4.h ****   @{
 1218:Drivers/CMSIS/Include/core_cm4.h ****  */
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 25
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 25
 
 
 1219:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -1498,7 +1498,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
 1273:Drivers/CMSIS/Include/core_cm4.h **** 
 1274:Drivers/CMSIS/Include/core_cm4.h **** /* MPU Region Attribute and Size Register Definitions */
 1275:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_RASR_ATTRS_Pos                 16U                                            /*!< MPU 
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 26
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 26
 
 
 1276:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_RASR_ATTRS_Msk                 (0xFFFFUL << MPU_RASR_ATTRS_Pos)               /*!< MPU 
@@ -1558,7 +1558,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
 1330:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_FPCCR_ASPEN_Pos                31U                                            /*!< FPCC
 1331:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_FPCCR_ASPEN_Msk                (1UL << FPU_FPCCR_ASPEN_Pos)                   /*!< FPCC
 1332:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 27
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 27
 
 
 1333:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_FPCCR_LSPEN_Pos                30U                                            /*!< FPCC
@@ -1618,7 +1618,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
 1387:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_MVFR0_FP_excep_trapping_Pos    12U                                            /*!< MVFR
 1388:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_MVFR0_FP_excep_trapping_Msk    (0xFUL << FPU_MVFR0_FP_excep_trapping_Pos)     /*!< MVFR
 1389:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 28
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 28
 
 
 1390:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_MVFR0_Double_precision_Pos      8U                                            /*!< MVFR
@@ -1678,7 +1678,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
 1444:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DHCSR_S_LOCKUP_Msk       (1UL << CoreDebug_DHCSR_S_LOCKUP_Pos)          /*!< Core
 1445:Drivers/CMSIS/Include/core_cm4.h **** 
 1446:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DHCSR_S_SLEEP_Pos        18U                                            /*!< Core
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 29
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 29
 
 
 1447:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DHCSR_S_SLEEP_Msk        (1UL << CoreDebug_DHCSR_S_SLEEP_Pos)           /*!< Core
@@ -1738,7 +1738,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
 1501:Drivers/CMSIS/Include/core_cm4.h **** 
 1502:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DEMCR_VC_STATERR_Pos      7U                                            /*!< Core
 1503:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DEMCR_VC_STATERR_Msk     (1UL << CoreDebug_DEMCR_VC_STATERR_Pos)        /*!< Core
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 30
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 30
 
 
 1504:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -1798,7 +1798,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
 1558:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_BASE      (0xE000EDF0UL)                            /*!< Core Debug Base Address 
 1559:Drivers/CMSIS/Include/core_cm4.h **** #define SysTick_BASE        (SCS_BASE +  0x0010UL)                    /*!< SysTick Base Address */
 1560:Drivers/CMSIS/Include/core_cm4.h **** #define NVIC_BASE           (SCS_BASE +  0x0100UL)                    /*!< NVIC Base Address */
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 31
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 31
 
 
 1561:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_BASE            (SCS_BASE +  0x0D00UL)                    /*!< System Control Block Bas
@@ -1858,7 +1858,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
 1615:Drivers/CMSIS/Include/core_cm4.h ****   #define NVIC_GetEnableIRQ           __NVIC_GetEnableIRQ
 1616:Drivers/CMSIS/Include/core_cm4.h ****   #define NVIC_DisableIRQ             __NVIC_DisableIRQ
 1617:Drivers/CMSIS/Include/core_cm4.h ****   #define NVIC_GetPendingIRQ          __NVIC_GetPendingIRQ
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 32
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 32
 
 
 1618:Drivers/CMSIS/Include/core_cm4.h ****   #define NVIC_SetPendingIRQ          __NVIC_SetPendingIRQ
@@ -1918,7 +1918,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
 1672:Drivers/CMSIS/Include/core_cm4.h ****   \brief   Get Priority Grouping
 1673:Drivers/CMSIS/Include/core_cm4.h ****   \details Reads the priority grouping field from the NVIC Interrupt Controller.
 1674:Drivers/CMSIS/Include/core_cm4.h ****   \return                Priority grouping field (SCB->AIRCR [10:8] PRIGROUP field).
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 33
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 33
 
 
 1675:Drivers/CMSIS/Include/core_cm4.h ****  */
@@ -1978,7 +1978,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
   33:src/midi_receive.c **** void USART1_EXTI25_IRQHandler(void){
  160              		.loc 1 33 36 is_stmt 1 view -0
  161              		.cfi_startproc
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 34
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 34
 
 
  162              		@ args = 0, pretend = 0, frame = 0
@@ -2038,7 +2038,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
   66:src/midi_receive.c **** 			expDataByteNum = 2;
   67:src/midi_receive.c **** 			break;
   68:src/midi_receive.c **** 		case POLY_PRESSURE:
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 35
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 35
 
 
   69:src/midi_receive.c **** 			MIDIMessage.type=polyPressure;
@@ -2098,7 +2098,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
  202 0030 DBB2     		uxtb	r3, r3
  203 0032 594A     		ldr	r2, .L33+8
  204 0034 1370     		strb	r3, [r2]
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 36
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 36
 
 
  105:src/midi_receive.c **** 			if(dataByteNum >= expDataByteNum){
@@ -2158,7 +2158,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
  245 0068 6DD0     		beq	.L17
  246 006a 42D8     		bhi	.L18
  247 006c 902B     		cmp	r3, #144
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 37
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 37
 
 
  248 006e 5ED0     		beq	.L19
@@ -2218,7 +2218,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
   41:src/midi_receive.c **** 			case START:
  292              		.loc 1 41 5 view .LVU74
  293 00bc C5E7     		b	.L10
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 38
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 38
 
 
  294              	.L15:
@@ -2278,7 +2278,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
   66:src/midi_receive.c **** 			break;
  334              		.loc 1 66 4 is_stmt 1 view .LVU89
   66:src/midi_receive.c **** 			break;
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 39
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 39
 
 
  335              		.loc 1 66 19 is_stmt 0 view .LVU90
@@ -2338,7 +2338,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
  375              		.loc 1 80 4 is_stmt 1 view .LVU104
   80:src/midi_receive.c **** 			expDataByteNum = 1;
  376              		.loc 1 80 37 is_stmt 0 view .LVU105
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 40
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 40
 
 
  377 011c 1D4B     		ldr	r3, .L33+4
@@ -2398,7 +2398,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
   75:src/midi_receive.c **** 			expDataByteNum = 2;
  416              		.loc 1 75 37 is_stmt 0 view .LVU121
  417 014c 114B     		ldr	r3, .L33+4
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 41
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 41
 
 
  418 014e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
@@ -2458,7 +2458,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
  457              		.loc 1 100 5 is_stmt 1 view .LVU136
  458 0180 55E7     		b	.L27
  459              	.L26:
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 42
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 42
 
 
  102:src/midi_receive.c **** 			}
@@ -2518,7 +2518,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
  509 000c DBB2     		uxtb	r3, r3
  510 000e 062B     		cmp	r3, #6
  511 0010 0ED8     		bhi	.L35
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 43
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 43
 
 
  512 0012 DFE803F0 		tbb	[pc, r3]
@@ -2578,7 +2578,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
  147:src/midi_receive.c **** 	}
  148:src/midi_receive.c **** }
  537              		.loc 1 148 1 is_stmt 0 view .LVU149
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 44
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 44
 
 
  538 0030 08BD     		pop	{r3, pc}
@@ -2638,7 +2638,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
  581 006a 1A70     		strb	r2, [r3]
  133:src/midi_receive.c **** 		case programChange:
  582              		.loc 1 133 4 is_stmt 1 view .LVU161
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 45
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 45
 
 
  583 006c E0E7     		b	.L35
@@ -2698,7 +2698,7 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
  625              		.loc 1 145 4 is_stmt 1 view .LVU173
  626              		.loc 1 148 1 is_stmt 0 view .LVU174
  627 00a4 C4E7     		b	.L35
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 46
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 46
 
 
  628              	.L47:
@@ -2727,35 +2727,35 @@ ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 1
  656              		.file 6 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/system_stm32f3xx.h"
  657              		.file 7 "inc/midi_receive.h"
  658              		.file 8 "inc/cv_convert.h"
-ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s 			page 47
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s 			page 47
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 midi_receive.c
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s:18     .text.get_midibyte:0000000000000000 $t
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s:26     .text.get_midibyte:0000000000000000 get_midibyte
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s:43     .text.get_midibyte:0000000000000008 $d
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s:18     .text.get_midibyte:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s:26     .text.get_midibyte:0000000000000000 get_midibyte
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s:43     .text.get_midibyte:0000000000000008 $d
                             *COM*:0000000000000001 midibyte
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s:48     .text.midi_rx_init:0000000000000000 $t
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s:55     .text.midi_rx_init:0000000000000000 midi_rx_init
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s:142    .text.midi_rx_init:0000000000000068 $d
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s:151    .text.USART1_EXTI25_IRQHandler:0000000000000000 $t
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s:158    .text.USART1_EXTI25_IRQHandler:0000000000000000 USART1_EXTI25_IRQHandler
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s:279    .text.USART1_EXTI25_IRQHandler:0000000000000098 $d
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s:287    .text.USART1_EXTI25_IRQHandler:00000000000000b8 $t
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s:471    .text.USART1_EXTI25_IRQHandler:0000000000000190 $d
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s:48     .text.midi_rx_init:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s:55     .text.midi_rx_init:0000000000000000 midi_rx_init
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s:142    .text.midi_rx_init:0000000000000068 $d
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s:151    .text.USART1_EXTI25_IRQHandler:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s:158    .text.USART1_EXTI25_IRQHandler:0000000000000000 USART1_EXTI25_IRQHandler
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s:279    .text.USART1_EXTI25_IRQHandler:0000000000000098 $d
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s:287    .text.USART1_EXTI25_IRQHandler:00000000000000b8 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s:471    .text.USART1_EXTI25_IRQHandler:0000000000000190 $d
                             *COM*:0000000000000001 F_midipollreq
                             *COM*:0000000000000004 MIDIMessage
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s:481    .text.getMIDIMessages:0000000000000000 $t
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s:488    .text.getMIDIMessages:0000000000000000 getMIDIMessages
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s:514    .text.getMIDIMessages:0000000000000016 $d
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s:631    .text.getMIDIMessages:00000000000000a8 $d
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s:643    .bss.dataByteNum.6910:0000000000000000 dataByteNum.6910
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s:644    .bss.dataByteNum.6910:0000000000000000 $d
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s:649    .bss.expDataByteNum.6909:0000000000000000 expDataByteNum.6909
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s:650    .bss.expDataByteNum.6909:0000000000000000 $d
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s:521    .text.getMIDIMessages:000000000000001d $d
-/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccFJ0V2v.s:521    .text.getMIDIMessages:000000000000001e $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s:481    .text.getMIDIMessages:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s:488    .text.getMIDIMessages:0000000000000000 getMIDIMessages
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s:514    .text.getMIDIMessages:0000000000000016 $d
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s:631    .text.getMIDIMessages:00000000000000a8 $d
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s:643    .bss.dataByteNum.6910:0000000000000000 dataByteNum.6910
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s:644    .bss.dataByteNum.6910:0000000000000000 $d
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s:649    .bss.expDataByteNum.6909:0000000000000000 expDataByteNum.6909
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s:650    .bss.expDataByteNum.6909:0000000000000000 $d
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s:521    .text.getMIDIMessages:000000000000001d $d
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMiIUkr.s:521    .text.getMIDIMessages:000000000000001e $t
 
 UNDEFINED SYMBOLS
 SystemCoreClock

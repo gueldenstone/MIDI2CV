@@ -1,5 +1,6 @@
 # Prerequisites
 *.d
+*.lst
 
 # Object files
 *.o
@@ -54,3 +55,4 @@ dkms.conf
 # user ignores
 MIDI2CV.code-workspace
 .DS_Store
+*.lst
