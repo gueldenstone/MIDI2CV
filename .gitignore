@@ -43,6 +43,7 @@
 *.idb
 *.pdb
 
+
 # Kernel Module Compile Results
 *.mod*
 *.cmd
@@ -56,3 +57,4 @@ dkms.conf
 MIDI2CV.code-workspace
 .DS_Store
 *.lst
+./build
