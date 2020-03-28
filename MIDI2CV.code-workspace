@@ -3,17 +3,5 @@
 		{
 			"path": "."
 		}
-	],
-	"settings": {
-		"files.associations": {
-			"main.h": "c",
-			"gpio.h": "c",
-			"stm32f3xx.h": "c"
-		},
-		"stm32-for-vscode.openocdPath": "openocd",
-		"cortex-debug.openocdPath": "openocd",
-		"stm32-for-vscode.makePath": "make",
-		"stm32-for-vscode.armToolchainPath": "",
-		"cortex-debug.armToolchainPath": ""
-	}
+	]
 }
