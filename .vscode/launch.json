@@ -8,7 +8,7 @@
       "request": "launch",
       "type": "cortex-debug",
       "servertype": "openocd",
-      "preLaunchTask": "make",
+      "preLaunchTask": "Build",
       "device": "stlink",
       "svdFile": "STM32F303.svd",
       "configFiles": [

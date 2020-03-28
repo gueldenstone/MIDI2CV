@@ -3,27 +3,21 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "make",
+      "label": "Rebuild",
+      "type": "shell",
+      "command": "make rebuild",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build",
       "type": "shell",
       "command": "make",
       "group": {
         "kind": "build",
         "isDefault": true
-      }
-    },
-    {
-      "type": "shell",
-      "label": "gcc build active file",
-      "command": "/usr/bin/gcc",
-      "args": [
-        "-g",
-        "${file}",
-        "-o",
-        "${fileDirname}/${fileBasenameNoExtension}"
-      ],
-      "options": {
-        "cwd": "/usr/bin"
-      }
+      },
+      "problemMatcher": []
     },
     {
       "label": "Erase STM",
@@ -36,10 +30,7 @@
       "options": {
         "cwd": "${workspaceRoot}"
       },
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
+      "group": "none",
       "problemMatcher": [
         "$gcc"
       ]
@@ -48,8 +39,7 @@
       "label": "Program STM",
       "type": "process",
       "dependsOn": [
-        "make",
-        "Erase STM"
+        "Build"
       ],
       "command": "STM32_Programmer_CLI",
       "args": [
@@ -61,10 +51,7 @@
       "options": {
         "cwd": "${workspaceRoot}"
       },
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
+      "group": "none",
       "problemMatcher": [
         "$gcc"
       ]
@@ -81,10 +68,7 @@
       "options": {
         "cwd": "${workspaceRoot}"
       },
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
+      "group": "none",
       "problemMatcher": [
         "$gcc"
       ]
@@ -92,8 +76,11 @@
     {
       "label": "Flash STM",
       "type": "process",
+      "dependsOrder": "sequence",
       "dependsOn": [
-        "Program STM"
+        "Erase STM",
+        "Program STM",
+        "Reset STM"
       ],
       "command": "STM32_Programmer_CLI",
       "args": [
@@ -104,10 +91,7 @@
       "options": {
         "cwd": "${workspaceRoot}"
       },
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
+      "group": "none",
       "problemMatcher": [
         "$gcc"
       ]

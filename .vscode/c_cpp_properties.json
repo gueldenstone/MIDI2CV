@@ -12,7 +12,12 @@
             ],
             "compilerPath": "/usr/bin/gcc",
             "cStandard": "c11",
-            "cppStandard": "c++11"
+            "cppStandard": "c++11",
+            "browse": {
+                "path": [
+                    "/inc"
+                ]
+            }
         }
     ],
     "version": 4
