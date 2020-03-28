@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "STM32",
+            "includePath": [
+                "Drivers/CMSIS/Device/ST/STM32F3xx/Include",
+                "Drivers/CMSIS/Include",
+                "inc"
+            ],
+            "defines": [
+                "STM32F303xC"
+            ],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++11"
+        }
+    ],
+    "version": 4
+}

@@ -1,0 +1,1007 @@
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"syscalls.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.initialise_monitor_handles,"ax",%progbits
+  18              		.align	1
+  19              		.global	initialise_monitor_handles
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	initialise_monitor_handles:
+  27              	.LFB25:
+  28              		.file 1 "src/syscalls.c"
+   1:src/syscalls.c **** /**
+   2:src/syscalls.c **** *****************************************************************************
+   3:src/syscalls.c **** **
+   4:src/syscalls.c **** **  File        : syscalls.c
+   5:src/syscalls.c **** **
+   6:src/syscalls.c **** **  Abstract    : System Workbench Minimal System calls file
+   7:src/syscalls.c **** **
+   8:src/syscalls.c **** ** 		          For more information about which c-functions
+   9:src/syscalls.c **** **                need which of these lowlevel functions
+  10:src/syscalls.c **** **                please consult the Newlib libc-manual
+  11:src/syscalls.c **** **
+  12:src/syscalls.c **** **  Environment : System Workbench for MCU
+  13:src/syscalls.c **** **
+  14:src/syscalls.c **** **  Distribution: The file is distributed �as is,� without any warranty
+  15:src/syscalls.c **** **                of any kind.
+  16:src/syscalls.c **** **
+  17:src/syscalls.c **** *****************************************************************************
+  18:src/syscalls.c **** **
+  19:src/syscalls.c **** ** <h2><center>&copy; COPYRIGHT(c) 2014 Ac6</center></h2>
+  20:src/syscalls.c **** **
+  21:src/syscalls.c **** ** Redistribution and use in source and binary forms, with or without modification,
+  22:src/syscalls.c **** ** are permitted provided that the following conditions are met:
+  23:src/syscalls.c **** **   1. Redistributions of source code must retain the above copyright notice,
+  24:src/syscalls.c **** **      this list of conditions and the following disclaimer.
+  25:src/syscalls.c **** **   2. Redistributions in binary form must reproduce the above copyright notice,
+  26:src/syscalls.c **** **      this list of conditions and the following disclaimer in the documentation
+  27:src/syscalls.c **** **      and/or other materials provided with the distribution.
+  28:src/syscalls.c **** **   3. Neither the name of Ac6 nor the names of its contributors
+  29:src/syscalls.c **** **      may be used to endorse or promote products derived from this software
+  30:src/syscalls.c **** **      without specific prior written permission.
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 2
+
+
+  31:src/syscalls.c **** **
+  32:src/syscalls.c **** ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+  33:src/syscalls.c **** ** AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+  34:src/syscalls.c **** ** IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+  35:src/syscalls.c **** ** DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+  36:src/syscalls.c **** ** FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+  37:src/syscalls.c **** ** DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+  38:src/syscalls.c **** ** SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+  39:src/syscalls.c **** ** CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+  40:src/syscalls.c **** ** OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  41:src/syscalls.c **** ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  42:src/syscalls.c **** **
+  43:src/syscalls.c **** *****************************************************************************
+  44:src/syscalls.c **** */
+  45:src/syscalls.c **** 
+  46:src/syscalls.c **** /* Includes */
+  47:src/syscalls.c **** #include <sys/stat.h>
+  48:src/syscalls.c **** #include <stdlib.h>
+  49:src/syscalls.c **** #include <errno.h>
+  50:src/syscalls.c **** #include <stdio.h>
+  51:src/syscalls.c **** #include <signal.h>
+  52:src/syscalls.c **** #include <time.h>
+  53:src/syscalls.c **** #include <sys/time.h>
+  54:src/syscalls.c **** #include <sys/times.h>
+  55:src/syscalls.c **** 
+  56:src/syscalls.c **** 
+  57:src/syscalls.c **** /* Variables */
+  58:src/syscalls.c **** //#undef errno
+  59:src/syscalls.c **** extern int errno;
+  60:src/syscalls.c **** extern int __io_putchar(int ch) __attribute__((weak));
+  61:src/syscalls.c **** extern int __io_getchar(void) __attribute__((weak));
+  62:src/syscalls.c **** 
+  63:src/syscalls.c **** register char * stack_ptr asm("sp");
+  64:src/syscalls.c **** 
+  65:src/syscalls.c **** char *__env[1] = { 0 };
+  66:src/syscalls.c **** char **environ = __env;
+  67:src/syscalls.c **** 
+  68:src/syscalls.c **** 
+  69:src/syscalls.c **** /* Functions */
+  70:src/syscalls.c **** void initialise_monitor_handles()
+  71:src/syscalls.c **** {
+  29              		.loc 1 71 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+  72:src/syscalls.c **** }
+  34              		.loc 1 72 1 view .LVU1
+  35 0000 7047     		bx	lr
+  36              		.cfi_endproc
+  37              	.LFE25:
+  39              		.section	.text._getpid,"ax",%progbits
+  40              		.align	1
+  41              		.global	_getpid
+  42              		.syntax unified
+  43              		.thumb
+  44              		.thumb_func
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 3
+
+
+  45              		.fpu fpv4-sp-d16
+  47              	_getpid:
+  48              	.LFB26:
+  73:src/syscalls.c **** 
+  74:src/syscalls.c **** int _getpid(void)
+  75:src/syscalls.c **** {
+  49              		.loc 1 75 1 view -0
+  50              		.cfi_startproc
+  51              		@ args = 0, pretend = 0, frame = 0
+  52              		@ frame_needed = 0, uses_anonymous_args = 0
+  53              		@ link register save eliminated.
+  76:src/syscalls.c **** 	return 1;
+  54              		.loc 1 76 2 view .LVU3
+  77:src/syscalls.c **** }
+  55              		.loc 1 77 1 is_stmt 0 view .LVU4
+  56 0000 0120     		movs	r0, #1
+  57 0002 7047     		bx	lr
+  58              		.cfi_endproc
+  59              	.LFE26:
+  61              		.section	.text._kill,"ax",%progbits
+  62              		.align	1
+  63              		.global	_kill
+  64              		.syntax unified
+  65              		.thumb
+  66              		.thumb_func
+  67              		.fpu fpv4-sp-d16
+  69              	_kill:
+  70              	.LVL0:
+  71              	.LFB27:
+  78:src/syscalls.c **** 
+  79:src/syscalls.c **** int _kill(int pid, int sig)
+  80:src/syscalls.c **** {
+  72              		.loc 1 80 1 is_stmt 1 view -0
+  73              		.cfi_startproc
+  74              		@ args = 0, pretend = 0, frame = 0
+  75              		@ frame_needed = 0, uses_anonymous_args = 0
+  76              		.loc 1 80 1 is_stmt 0 view .LVU6
+  77 0000 08B5     		push	{r3, lr}
+  78              	.LCFI0:
+  79              		.cfi_def_cfa_offset 8
+  80              		.cfi_offset 3, -8
+  81              		.cfi_offset 14, -4
+  81:src/syscalls.c **** 	errno = EINVAL;
+  82              		.loc 1 81 2 is_stmt 1 view .LVU7
+  83 0002 FFF7FEFF 		bl	__errno
+  84              	.LVL1:
+  85              		.loc 1 81 8 is_stmt 0 view .LVU8
+  86 0006 1623     		movs	r3, #22
+  87 0008 0360     		str	r3, [r0]
+  82:src/syscalls.c **** 	return -1;
+  88              		.loc 1 82 2 is_stmt 1 view .LVU9
+  83:src/syscalls.c **** }
+  89              		.loc 1 83 1 is_stmt 0 view .LVU10
+  90 000a 4FF0FF30 		mov	r0, #-1
+  91 000e 08BD     		pop	{r3, pc}
+  92              		.cfi_endproc
+  93              	.LFE27:
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 4
+
+
+  95              		.section	.text._exit,"ax",%progbits
+  96              		.align	1
+  97              		.global	_exit
+  98              		.syntax unified
+  99              		.thumb
+ 100              		.thumb_func
+ 101              		.fpu fpv4-sp-d16
+ 103              	_exit:
+ 104              	.LVL2:
+ 105              	.LFB28:
+  84:src/syscalls.c **** 
+  85:src/syscalls.c **** void _exit (int status)
+  86:src/syscalls.c **** {
+ 106              		.loc 1 86 1 is_stmt 1 view -0
+ 107              		.cfi_startproc
+ 108              		@ Volatile: function does not return.
+ 109              		@ args = 0, pretend = 0, frame = 0
+ 110              		@ frame_needed = 0, uses_anonymous_args = 0
+ 111              		.loc 1 86 1 is_stmt 0 view .LVU12
+ 112 0000 08B5     		push	{r3, lr}
+ 113              	.LCFI1:
+ 114              		.cfi_def_cfa_offset 8
+ 115              		.cfi_offset 3, -8
+ 116              		.cfi_offset 14, -4
+  87:src/syscalls.c **** 	_kill(status, -1);
+ 117              		.loc 1 87 2 is_stmt 1 view .LVU13
+ 118 0002 4FF0FF31 		mov	r1, #-1
+ 119 0006 FFF7FEFF 		bl	_kill
+ 120              	.LVL3:
+ 121              	.L6:
+  88:src/syscalls.c **** 	while (1) {}		/* Make sure we hang here */
+ 122              		.loc 1 88 2 discriminator 1 view .LVU14
+ 123              		.loc 1 88 13 discriminator 1 view .LVU15
+ 124              		.loc 1 88 8 discriminator 1 view .LVU16
+ 125 000a FEE7     		b	.L6
+ 126              		.cfi_endproc
+ 127              	.LFE28:
+ 129              		.section	.text._read,"ax",%progbits
+ 130              		.align	1
+ 131              		.global	_read
+ 132              		.syntax unified
+ 133              		.thumb
+ 134              		.thumb_func
+ 135              		.fpu fpv4-sp-d16
+ 137              	_read:
+ 138              	.LVL4:
+ 139              	.LFB29:
+  89:src/syscalls.c **** }
+  90:src/syscalls.c **** 
+  91:src/syscalls.c **** int _read (int file, char *ptr, int len)
+  92:src/syscalls.c **** {
+ 140              		.loc 1 92 1 view -0
+ 141              		.cfi_startproc
+ 142              		@ args = 0, pretend = 0, frame = 0
+ 143              		@ frame_needed = 0, uses_anonymous_args = 0
+ 144              		.loc 1 92 1 is_stmt 0 view .LVU18
+ 145 0000 70B5     		push	{r4, r5, r6, lr}
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 5
+
+
+ 146              	.LCFI2:
+ 147              		.cfi_def_cfa_offset 16
+ 148              		.cfi_offset 4, -16
+ 149              		.cfi_offset 5, -12
+ 150              		.cfi_offset 6, -8
+ 151              		.cfi_offset 14, -4
+ 152 0002 0C46     		mov	r4, r1
+ 153 0004 1646     		mov	r6, r2
+  93:src/syscalls.c **** 	int DataIdx;
+ 154              		.loc 1 93 2 is_stmt 1 view .LVU19
+  94:src/syscalls.c **** 
+  95:src/syscalls.c **** 	for (DataIdx = 0; DataIdx < len; DataIdx++)
+ 155              		.loc 1 95 2 view .LVU20
+ 156              	.LVL5:
+ 157              		.loc 1 95 15 is_stmt 0 view .LVU21
+ 158 0006 0025     		movs	r5, #0
+ 159              	.LVL6:
+ 160              	.L9:
+ 161              		.loc 1 95 20 is_stmt 1 discriminator 1 view .LVU22
+ 162              		.loc 1 95 2 is_stmt 0 discriminator 1 view .LVU23
+ 163 0008 B542     		cmp	r5, r6
+ 164 000a 07DA     		bge	.L12
+  96:src/syscalls.c **** 	{
+  97:src/syscalls.c **** 		*ptr++ = __io_getchar();
+ 165              		.loc 1 97 3 is_stmt 1 discriminator 3 view .LVU24
+ 166              		.loc 1 97 12 is_stmt 0 discriminator 3 view .LVU25
+ 167 000c FFF7FEFF 		bl	__io_getchar
+ 168              	.LVL7:
+ 169              		.loc 1 97 7 discriminator 3 view .LVU26
+ 170 0010 2146     		mov	r1, r4
+ 171              	.LVL8:
+ 172              		.loc 1 97 10 discriminator 3 view .LVU27
+ 173 0012 01F8010B 		strb	r0, [r1], #1
+ 174              	.LVL9:
+  95:src/syscalls.c **** 	{
+ 175              		.loc 1 95 35 is_stmt 1 discriminator 3 view .LVU28
+  95:src/syscalls.c **** 	{
+ 176              		.loc 1 95 42 is_stmt 0 discriminator 3 view .LVU29
+ 177 0016 0135     		adds	r5, r5, #1
+ 178              	.LVL10:
+ 179              		.loc 1 97 7 discriminator 3 view .LVU30
+ 180 0018 0C46     		mov	r4, r1
+ 181 001a F5E7     		b	.L9
+ 182              	.L12:
+  98:src/syscalls.c **** 	}
+  99:src/syscalls.c **** 
+ 100:src/syscalls.c **** return len;
+ 183              		.loc 1 100 1 is_stmt 1 view .LVU31
+ 101:src/syscalls.c **** }
+ 184              		.loc 1 101 1 is_stmt 0 view .LVU32
+ 185 001c 3046     		mov	r0, r6
+ 186 001e 70BD     		pop	{r4, r5, r6, pc}
+ 187              		.loc 1 101 1 view .LVU33
+ 188              		.cfi_endproc
+ 189              	.LFE29:
+ 191              		.section	.text._write,"ax",%progbits
+ 192              		.align	1
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 6
+
+
+ 193              		.global	_write
+ 194              		.syntax unified
+ 195              		.thumb
+ 196              		.thumb_func
+ 197              		.fpu fpv4-sp-d16
+ 199              	_write:
+ 200              	.LVL11:
+ 201              	.LFB30:
+ 102:src/syscalls.c **** 
+ 103:src/syscalls.c **** int _write(int file, char *ptr, int len)
+ 104:src/syscalls.c **** {
+ 202              		.loc 1 104 1 is_stmt 1 view -0
+ 203              		.cfi_startproc
+ 204              		@ args = 0, pretend = 0, frame = 0
+ 205              		@ frame_needed = 0, uses_anonymous_args = 0
+ 206              		.loc 1 104 1 is_stmt 0 view .LVU35
+ 207 0000 70B5     		push	{r4, r5, r6, lr}
+ 208              	.LCFI3:
+ 209              		.cfi_def_cfa_offset 16
+ 210              		.cfi_offset 4, -16
+ 211              		.cfi_offset 5, -12
+ 212              		.cfi_offset 6, -8
+ 213              		.cfi_offset 14, -4
+ 214 0002 0C46     		mov	r4, r1
+ 215 0004 1646     		mov	r6, r2
+ 105:src/syscalls.c **** 	int DataIdx;
+ 216              		.loc 1 105 2 is_stmt 1 view .LVU36
+ 106:src/syscalls.c **** 
+ 107:src/syscalls.c **** 	for (DataIdx = 0; DataIdx < len; DataIdx++)
+ 217              		.loc 1 107 2 view .LVU37
+ 218              	.LVL12:
+ 219              		.loc 1 107 15 is_stmt 0 view .LVU38
+ 220 0006 0025     		movs	r5, #0
+ 221              	.LVL13:
+ 222              	.L14:
+ 223              		.loc 1 107 20 is_stmt 1 discriminator 1 view .LVU39
+ 224              		.loc 1 107 2 is_stmt 0 discriminator 1 view .LVU40
+ 225 0008 B542     		cmp	r5, r6
+ 226 000a 05DA     		bge	.L17
+ 108:src/syscalls.c **** 	{
+ 109:src/syscalls.c **** 		__io_putchar(*ptr++);
+ 227              		.loc 1 109 3 is_stmt 1 discriminator 3 view .LVU41
+ 228              	.LVL14:
+ 229              		.loc 1 109 3 is_stmt 0 discriminator 3 view .LVU42
+ 230 000c 14F8010B 		ldrb	r0, [r4], #1	@ zero_extendqisi2
+ 231              	.LVL15:
+ 232              		.loc 1 109 3 discriminator 3 view .LVU43
+ 233 0010 FFF7FEFF 		bl	__io_putchar
+ 234              	.LVL16:
+ 107:src/syscalls.c **** 	{
+ 235              		.loc 1 107 35 is_stmt 1 discriminator 3 view .LVU44
+ 107:src/syscalls.c **** 	{
+ 236              		.loc 1 107 42 is_stmt 0 discriminator 3 view .LVU45
+ 237 0014 0135     		adds	r5, r5, #1
+ 238              	.LVL17:
+ 107:src/syscalls.c **** 	{
+ 239              		.loc 1 107 42 discriminator 3 view .LVU46
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 7
+
+
+ 240 0016 F7E7     		b	.L14
+ 241              	.L17:
+ 110:src/syscalls.c **** 	}
+ 111:src/syscalls.c **** 	return len;
+ 242              		.loc 1 111 2 is_stmt 1 view .LVU47
+ 112:src/syscalls.c **** }
+ 243              		.loc 1 112 1 is_stmt 0 view .LVU48
+ 244 0018 3046     		mov	r0, r6
+ 245 001a 70BD     		pop	{r4, r5, r6, pc}
+ 246              		.loc 1 112 1 view .LVU49
+ 247              		.cfi_endproc
+ 248              	.LFE30:
+ 250              		.section	.text._sbrk,"ax",%progbits
+ 251              		.align	1
+ 252              		.global	_sbrk
+ 253              		.syntax unified
+ 254              		.thumb
+ 255              		.thumb_func
+ 256              		.fpu fpv4-sp-d16
+ 258              	_sbrk:
+ 259              	.LVL18:
+ 260              	.LFB31:
+ 113:src/syscalls.c **** 
+ 114:src/syscalls.c **** caddr_t _sbrk(int incr)
+ 115:src/syscalls.c **** {
+ 261              		.loc 1 115 1 is_stmt 1 view -0
+ 262              		.cfi_startproc
+ 263              		@ args = 0, pretend = 0, frame = 0
+ 264              		@ frame_needed = 0, uses_anonymous_args = 0
+ 265              		.loc 1 115 1 is_stmt 0 view .LVU51
+ 266 0000 08B5     		push	{r3, lr}
+ 267              	.LCFI4:
+ 268              		.cfi_def_cfa_offset 8
+ 269              		.cfi_offset 3, -8
+ 270              		.cfi_offset 14, -4
+ 271 0002 0346     		mov	r3, r0
+ 116:src/syscalls.c **** 	extern char end asm("end");
+ 272              		.loc 1 116 2 is_stmt 1 view .LVU52
+ 117:src/syscalls.c **** 	static char *heap_end;
+ 273              		.loc 1 117 2 view .LVU53
+ 118:src/syscalls.c **** 	char *prev_heap_end;
+ 274              		.loc 1 118 2 view .LVU54
+ 119:src/syscalls.c **** 
+ 120:src/syscalls.c **** 	if (heap_end == 0)
+ 275              		.loc 1 120 2 view .LVU55
+ 276              		.loc 1 120 15 is_stmt 0 view .LVU56
+ 277 0004 0B4A     		ldr	r2, .L25
+ 278 0006 1268     		ldr	r2, [r2]
+ 279              		.loc 1 120 5 view .LVU57
+ 280 0008 42B1     		cbz	r2, .L23
+ 281              	.L19:
+ 121:src/syscalls.c **** 		heap_end = &end;
+ 122:src/syscalls.c **** 
+ 123:src/syscalls.c **** 	prev_heap_end = heap_end;
+ 282              		.loc 1 123 2 is_stmt 1 view .LVU58
+ 283              		.loc 1 123 16 is_stmt 0 view .LVU59
+ 284 000a 0A4A     		ldr	r2, .L25
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 8
+
+
+ 285 000c 1068     		ldr	r0, [r2]
+ 286              	.LVL19:
+ 124:src/syscalls.c **** 	if (heap_end + incr > stack_ptr)
+ 287              		.loc 1 124 2 is_stmt 1 view .LVU60
+ 288              		.loc 1 124 15 is_stmt 0 view .LVU61
+ 289 000e 0344     		add	r3, r3, r0
+ 290              	.LVL20:
+ 291              		.loc 1 124 5 view .LVU62
+ 292 0010 6A46     		mov	r2, sp
+ 293 0012 9342     		cmp	r3, r2
+ 294 0014 06D8     		bhi	.L24
+ 125:src/syscalls.c **** 	{
+ 126:src/syscalls.c **** //		write(1, "Heap and stack collision\n", 25);
+ 127:src/syscalls.c **** //		abort();
+ 128:src/syscalls.c **** 		errno = ENOMEM;
+ 129:src/syscalls.c **** 		return (caddr_t) -1;
+ 130:src/syscalls.c **** 	}
+ 131:src/syscalls.c **** 
+ 132:src/syscalls.c **** 	heap_end += incr;
+ 295              		.loc 1 132 2 is_stmt 1 view .LVU63
+ 296              		.loc 1 132 11 is_stmt 0 view .LVU64
+ 297 0016 074A     		ldr	r2, .L25
+ 298 0018 1360     		str	r3, [r2]
+ 133:src/syscalls.c **** 
+ 134:src/syscalls.c **** 	return (caddr_t) prev_heap_end;
+ 299              		.loc 1 134 2 is_stmt 1 view .LVU65
+ 300              	.LVL21:
+ 301              	.L18:
+ 135:src/syscalls.c **** }
+ 302              		.loc 1 135 1 is_stmt 0 view .LVU66
+ 303 001a 08BD     		pop	{r3, pc}
+ 304              	.LVL22:
+ 305              	.L23:
+ 121:src/syscalls.c **** 
+ 306              		.loc 1 121 3 is_stmt 1 view .LVU67
+ 121:src/syscalls.c **** 
+ 307              		.loc 1 121 12 is_stmt 0 view .LVU68
+ 308 001c 054A     		ldr	r2, .L25
+ 309 001e 0649     		ldr	r1, .L25+4
+ 310 0020 1160     		str	r1, [r2]
+ 311 0022 F2E7     		b	.L19
+ 312              	.LVL23:
+ 313              	.L24:
+ 128:src/syscalls.c **** 		return (caddr_t) -1;
+ 314              		.loc 1 128 3 is_stmt 1 view .LVU69
+ 315 0024 FFF7FEFF 		bl	__errno
+ 316              	.LVL24:
+ 128:src/syscalls.c **** 		return (caddr_t) -1;
+ 317              		.loc 1 128 9 is_stmt 0 view .LVU70
+ 318 0028 0C23     		movs	r3, #12
+ 319 002a 0360     		str	r3, [r0]
+ 129:src/syscalls.c **** 	}
+ 320              		.loc 1 129 3 is_stmt 1 view .LVU71
+ 129:src/syscalls.c **** 	}
+ 321              		.loc 1 129 10 is_stmt 0 view .LVU72
+ 322 002c 4FF0FF30 		mov	r0, #-1
+ 323 0030 F3E7     		b	.L18
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 9
+
+
+ 324              	.L26:
+ 325 0032 00BF     		.align	2
+ 326              	.L25:
+ 327 0034 00000000 		.word	.LANCHOR0
+ 328 0038 00000000 		.word	end
+ 329              		.cfi_endproc
+ 330              	.LFE31:
+ 332              		.section	.text._close,"ax",%progbits
+ 333              		.align	1
+ 334              		.global	_close
+ 335              		.syntax unified
+ 336              		.thumb
+ 337              		.thumb_func
+ 338              		.fpu fpv4-sp-d16
+ 340              	_close:
+ 341              	.LVL25:
+ 342              	.LFB32:
+ 136:src/syscalls.c **** 
+ 137:src/syscalls.c **** int _close(int file)
+ 138:src/syscalls.c **** {
+ 343              		.loc 1 138 1 is_stmt 1 view -0
+ 344              		.cfi_startproc
+ 345              		@ args = 0, pretend = 0, frame = 0
+ 346              		@ frame_needed = 0, uses_anonymous_args = 0
+ 347              		@ link register save eliminated.
+ 139:src/syscalls.c **** 	return -1;
+ 348              		.loc 1 139 2 view .LVU74
+ 140:src/syscalls.c **** }
+ 349              		.loc 1 140 1 is_stmt 0 view .LVU75
+ 350 0000 4FF0FF30 		mov	r0, #-1
+ 351              	.LVL26:
+ 352              		.loc 1 140 1 view .LVU76
+ 353 0004 7047     		bx	lr
+ 354              		.cfi_endproc
+ 355              	.LFE32:
+ 357              		.section	.text._fstat,"ax",%progbits
+ 358              		.align	1
+ 359              		.global	_fstat
+ 360              		.syntax unified
+ 361              		.thumb
+ 362              		.thumb_func
+ 363              		.fpu fpv4-sp-d16
+ 365              	_fstat:
+ 366              	.LVL27:
+ 367              	.LFB33:
+ 141:src/syscalls.c **** 
+ 142:src/syscalls.c **** 
+ 143:src/syscalls.c **** int _fstat(int file, struct stat *st)
+ 144:src/syscalls.c **** {
+ 368              		.loc 1 144 1 is_stmt 1 view -0
+ 369              		.cfi_startproc
+ 370              		@ args = 0, pretend = 0, frame = 0
+ 371              		@ frame_needed = 0, uses_anonymous_args = 0
+ 372              		@ link register save eliminated.
+ 145:src/syscalls.c **** 	st->st_mode = S_IFCHR;
+ 373              		.loc 1 145 2 view .LVU78
+ 374              		.loc 1 145 14 is_stmt 0 view .LVU79
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 10
+
+
+ 375 0000 4FF40053 		mov	r3, #8192
+ 376 0004 4B60     		str	r3, [r1, #4]
+ 146:src/syscalls.c **** 	return 0;
+ 377              		.loc 1 146 2 is_stmt 1 view .LVU80
+ 147:src/syscalls.c **** }
+ 378              		.loc 1 147 1 is_stmt 0 view .LVU81
+ 379 0006 0020     		movs	r0, #0
+ 380              	.LVL28:
+ 381              		.loc 1 147 1 view .LVU82
+ 382 0008 7047     		bx	lr
+ 383              		.cfi_endproc
+ 384              	.LFE33:
+ 386              		.section	.text._isatty,"ax",%progbits
+ 387              		.align	1
+ 388              		.global	_isatty
+ 389              		.syntax unified
+ 390              		.thumb
+ 391              		.thumb_func
+ 392              		.fpu fpv4-sp-d16
+ 394              	_isatty:
+ 395              	.LVL29:
+ 396              	.LFB34:
+ 148:src/syscalls.c **** 
+ 149:src/syscalls.c **** int _isatty(int file)
+ 150:src/syscalls.c **** {
+ 397              		.loc 1 150 1 is_stmt 1 view -0
+ 398              		.cfi_startproc
+ 399              		@ args = 0, pretend = 0, frame = 0
+ 400              		@ frame_needed = 0, uses_anonymous_args = 0
+ 401              		@ link register save eliminated.
+ 151:src/syscalls.c **** 	return 1;
+ 402              		.loc 1 151 2 view .LVU84
+ 152:src/syscalls.c **** }
+ 403              		.loc 1 152 1 is_stmt 0 view .LVU85
+ 404 0000 0120     		movs	r0, #1
+ 405              	.LVL30:
+ 406              		.loc 1 152 1 view .LVU86
+ 407 0002 7047     		bx	lr
+ 408              		.cfi_endproc
+ 409              	.LFE34:
+ 411              		.section	.text._lseek,"ax",%progbits
+ 412              		.align	1
+ 413              		.global	_lseek
+ 414              		.syntax unified
+ 415              		.thumb
+ 416              		.thumb_func
+ 417              		.fpu fpv4-sp-d16
+ 419              	_lseek:
+ 420              	.LVL31:
+ 421              	.LFB35:
+ 153:src/syscalls.c **** 
+ 154:src/syscalls.c **** int _lseek(int file, int ptr, int dir)
+ 155:src/syscalls.c **** {
+ 422              		.loc 1 155 1 is_stmt 1 view -0
+ 423              		.cfi_startproc
+ 424              		@ args = 0, pretend = 0, frame = 0
+ 425              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 11
+
+
+ 426              		@ link register save eliminated.
+ 156:src/syscalls.c **** 	return 0;
+ 427              		.loc 1 156 2 view .LVU88
+ 157:src/syscalls.c **** }
+ 428              		.loc 1 157 1 is_stmt 0 view .LVU89
+ 429 0000 0020     		movs	r0, #0
+ 430              	.LVL32:
+ 431              		.loc 1 157 1 view .LVU90
+ 432 0002 7047     		bx	lr
+ 433              		.cfi_endproc
+ 434              	.LFE35:
+ 436              		.section	.text._open,"ax",%progbits
+ 437              		.align	1
+ 438              		.global	_open
+ 439              		.syntax unified
+ 440              		.thumb
+ 441              		.thumb_func
+ 442              		.fpu fpv4-sp-d16
+ 444              	_open:
+ 445              	.LVL33:
+ 446              	.LFB36:
+ 158:src/syscalls.c **** 
+ 159:src/syscalls.c **** int _open(char *path, int flags, ...)
+ 160:src/syscalls.c **** {
+ 447              		.loc 1 160 1 is_stmt 1 view -0
+ 448              		.cfi_startproc
+ 449              		@ args = 4, pretend = 12, frame = 0
+ 450              		@ frame_needed = 0, uses_anonymous_args = 1
+ 451              		@ link register save eliminated.
+ 452              		.loc 1 160 1 is_stmt 0 view .LVU92
+ 453 0000 0EB4     		push	{r1, r2, r3}
+ 454              	.LCFI5:
+ 455              		.cfi_def_cfa_offset 12
+ 456              		.cfi_offset 1, -12
+ 457              		.cfi_offset 2, -8
+ 458              		.cfi_offset 3, -4
+ 161:src/syscalls.c **** 	/* Pretend like we always fail */
+ 162:src/syscalls.c **** 	return -1;
+ 459              		.loc 1 162 2 is_stmt 1 view .LVU93
+ 163:src/syscalls.c **** }
+ 460              		.loc 1 163 1 is_stmt 0 view .LVU94
+ 461 0002 4FF0FF30 		mov	r0, #-1
+ 462              	.LVL34:
+ 463              		.loc 1 163 1 view .LVU95
+ 464 0006 03B0     		add	sp, sp, #12
+ 465              	.LCFI6:
+ 466              		.cfi_restore 3
+ 467              		.cfi_restore 2
+ 468              		.cfi_restore 1
+ 469              		.cfi_def_cfa_offset 0
+ 470 0008 7047     		bx	lr
+ 471              		.cfi_endproc
+ 472              	.LFE36:
+ 474              		.section	.text._wait,"ax",%progbits
+ 475              		.align	1
+ 476              		.global	_wait
+ 477              		.syntax unified
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 12
+
+
+ 478              		.thumb
+ 479              		.thumb_func
+ 480              		.fpu fpv4-sp-d16
+ 482              	_wait:
+ 483              	.LVL35:
+ 484              	.LFB37:
+ 164:src/syscalls.c **** 
+ 165:src/syscalls.c **** int _wait(int *status)
+ 166:src/syscalls.c **** {
+ 485              		.loc 1 166 1 is_stmt 1 view -0
+ 486              		.cfi_startproc
+ 487              		@ args = 0, pretend = 0, frame = 0
+ 488              		@ frame_needed = 0, uses_anonymous_args = 0
+ 489              		.loc 1 166 1 is_stmt 0 view .LVU97
+ 490 0000 08B5     		push	{r3, lr}
+ 491              	.LCFI7:
+ 492              		.cfi_def_cfa_offset 8
+ 493              		.cfi_offset 3, -8
+ 494              		.cfi_offset 14, -4
+ 167:src/syscalls.c **** 	errno = ECHILD;
+ 495              		.loc 1 167 2 is_stmt 1 view .LVU98
+ 496 0002 FFF7FEFF 		bl	__errno
+ 497              	.LVL36:
+ 498              		.loc 1 167 8 is_stmt 0 view .LVU99
+ 499 0006 0A23     		movs	r3, #10
+ 500 0008 0360     		str	r3, [r0]
+ 168:src/syscalls.c **** 	return -1;
+ 501              		.loc 1 168 2 is_stmt 1 view .LVU100
+ 169:src/syscalls.c **** }
+ 502              		.loc 1 169 1 is_stmt 0 view .LVU101
+ 503 000a 4FF0FF30 		mov	r0, #-1
+ 504 000e 08BD     		pop	{r3, pc}
+ 505              		.cfi_endproc
+ 506              	.LFE37:
+ 508              		.section	.text._unlink,"ax",%progbits
+ 509              		.align	1
+ 510              		.global	_unlink
+ 511              		.syntax unified
+ 512              		.thumb
+ 513              		.thumb_func
+ 514              		.fpu fpv4-sp-d16
+ 516              	_unlink:
+ 517              	.LVL37:
+ 518              	.LFB38:
+ 170:src/syscalls.c **** 
+ 171:src/syscalls.c **** int _unlink(char *name)
+ 172:src/syscalls.c **** {
+ 519              		.loc 1 172 1 is_stmt 1 view -0
+ 520              		.cfi_startproc
+ 521              		@ args = 0, pretend = 0, frame = 0
+ 522              		@ frame_needed = 0, uses_anonymous_args = 0
+ 523              		.loc 1 172 1 is_stmt 0 view .LVU103
+ 524 0000 08B5     		push	{r3, lr}
+ 525              	.LCFI8:
+ 526              		.cfi_def_cfa_offset 8
+ 527              		.cfi_offset 3, -8
+ 528              		.cfi_offset 14, -4
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 13
+
+
+ 173:src/syscalls.c **** 	errno = ENOENT;
+ 529              		.loc 1 173 2 is_stmt 1 view .LVU104
+ 530 0002 FFF7FEFF 		bl	__errno
+ 531              	.LVL38:
+ 532              		.loc 1 173 8 is_stmt 0 view .LVU105
+ 533 0006 0223     		movs	r3, #2
+ 534 0008 0360     		str	r3, [r0]
+ 174:src/syscalls.c **** 	return -1;
+ 535              		.loc 1 174 2 is_stmt 1 view .LVU106
+ 175:src/syscalls.c **** }
+ 536              		.loc 1 175 1 is_stmt 0 view .LVU107
+ 537 000a 4FF0FF30 		mov	r0, #-1
+ 538 000e 08BD     		pop	{r3, pc}
+ 539              		.cfi_endproc
+ 540              	.LFE38:
+ 542              		.section	.text._times,"ax",%progbits
+ 543              		.align	1
+ 544              		.global	_times
+ 545              		.syntax unified
+ 546              		.thumb
+ 547              		.thumb_func
+ 548              		.fpu fpv4-sp-d16
+ 550              	_times:
+ 551              	.LVL39:
+ 552              	.LFB39:
+ 176:src/syscalls.c **** 
+ 177:src/syscalls.c **** int _times(struct tms *buf)
+ 178:src/syscalls.c **** {
+ 553              		.loc 1 178 1 is_stmt 1 view -0
+ 554              		.cfi_startproc
+ 555              		@ args = 0, pretend = 0, frame = 0
+ 556              		@ frame_needed = 0, uses_anonymous_args = 0
+ 557              		@ link register save eliminated.
+ 179:src/syscalls.c **** 	return -1;
+ 558              		.loc 1 179 2 view .LVU109
+ 180:src/syscalls.c **** }
+ 559              		.loc 1 180 1 is_stmt 0 view .LVU110
+ 560 0000 4FF0FF30 		mov	r0, #-1
+ 561              	.LVL40:
+ 562              		.loc 1 180 1 view .LVU111
+ 563 0004 7047     		bx	lr
+ 564              		.cfi_endproc
+ 565              	.LFE39:
+ 567              		.section	.text._stat,"ax",%progbits
+ 568              		.align	1
+ 569              		.global	_stat
+ 570              		.syntax unified
+ 571              		.thumb
+ 572              		.thumb_func
+ 573              		.fpu fpv4-sp-d16
+ 575              	_stat:
+ 576              	.LVL41:
+ 577              	.LFB40:
+ 181:src/syscalls.c **** 
+ 182:src/syscalls.c **** int _stat(char *file, struct stat *st)
+ 183:src/syscalls.c **** {
+ 578              		.loc 1 183 1 is_stmt 1 view -0
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 14
+
+
+ 579              		.cfi_startproc
+ 580              		@ args = 0, pretend = 0, frame = 0
+ 581              		@ frame_needed = 0, uses_anonymous_args = 0
+ 582              		@ link register save eliminated.
+ 184:src/syscalls.c **** 	st->st_mode = S_IFCHR;
+ 583              		.loc 1 184 2 view .LVU113
+ 584              		.loc 1 184 14 is_stmt 0 view .LVU114
+ 585 0000 4FF40053 		mov	r3, #8192
+ 586 0004 4B60     		str	r3, [r1, #4]
+ 185:src/syscalls.c **** 	return 0;
+ 587              		.loc 1 185 2 is_stmt 1 view .LVU115
+ 186:src/syscalls.c **** }
+ 588              		.loc 1 186 1 is_stmt 0 view .LVU116
+ 589 0006 0020     		movs	r0, #0
+ 590              	.LVL42:
+ 591              		.loc 1 186 1 view .LVU117
+ 592 0008 7047     		bx	lr
+ 593              		.cfi_endproc
+ 594              	.LFE40:
+ 596              		.section	.text._link,"ax",%progbits
+ 597              		.align	1
+ 598              		.global	_link
+ 599              		.syntax unified
+ 600              		.thumb
+ 601              		.thumb_func
+ 602              		.fpu fpv4-sp-d16
+ 604              	_link:
+ 605              	.LVL43:
+ 606              	.LFB41:
+ 187:src/syscalls.c **** 
+ 188:src/syscalls.c **** int _link(char *old, char *new)
+ 189:src/syscalls.c **** {
+ 607              		.loc 1 189 1 is_stmt 1 view -0
+ 608              		.cfi_startproc
+ 609              		@ args = 0, pretend = 0, frame = 0
+ 610              		@ frame_needed = 0, uses_anonymous_args = 0
+ 611              		.loc 1 189 1 is_stmt 0 view .LVU119
+ 612 0000 08B5     		push	{r3, lr}
+ 613              	.LCFI9:
+ 614              		.cfi_def_cfa_offset 8
+ 615              		.cfi_offset 3, -8
+ 616              		.cfi_offset 14, -4
+ 190:src/syscalls.c **** 	errno = EMLINK;
+ 617              		.loc 1 190 2 is_stmt 1 view .LVU120
+ 618 0002 FFF7FEFF 		bl	__errno
+ 619              	.LVL44:
+ 620              		.loc 1 190 8 is_stmt 0 view .LVU121
+ 621 0006 1F23     		movs	r3, #31
+ 622 0008 0360     		str	r3, [r0]
+ 191:src/syscalls.c **** 	return -1;
+ 623              		.loc 1 191 2 is_stmt 1 view .LVU122
+ 192:src/syscalls.c **** }
+ 624              		.loc 1 192 1 is_stmt 0 view .LVU123
+ 625 000a 4FF0FF30 		mov	r0, #-1
+ 626 000e 08BD     		pop	{r3, pc}
+ 627              		.cfi_endproc
+ 628              	.LFE41:
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 15
+
+
+ 630              		.section	.text._fork,"ax",%progbits
+ 631              		.align	1
+ 632              		.global	_fork
+ 633              		.syntax unified
+ 634              		.thumb
+ 635              		.thumb_func
+ 636              		.fpu fpv4-sp-d16
+ 638              	_fork:
+ 639              	.LFB42:
+ 193:src/syscalls.c **** 
+ 194:src/syscalls.c **** int _fork(void)
+ 195:src/syscalls.c **** {
+ 640              		.loc 1 195 1 is_stmt 1 view -0
+ 641              		.cfi_startproc
+ 642              		@ args = 0, pretend = 0, frame = 0
+ 643              		@ frame_needed = 0, uses_anonymous_args = 0
+ 644 0000 08B5     		push	{r3, lr}
+ 645              	.LCFI10:
+ 646              		.cfi_def_cfa_offset 8
+ 647              		.cfi_offset 3, -8
+ 648              		.cfi_offset 14, -4
+ 196:src/syscalls.c **** 	errno = EAGAIN;
+ 649              		.loc 1 196 2 view .LVU125
+ 650 0002 FFF7FEFF 		bl	__errno
+ 651              	.LVL45:
+ 652              		.loc 1 196 8 is_stmt 0 view .LVU126
+ 653 0006 0B23     		movs	r3, #11
+ 654 0008 0360     		str	r3, [r0]
+ 197:src/syscalls.c **** 	return -1;
+ 655              		.loc 1 197 2 is_stmt 1 view .LVU127
+ 198:src/syscalls.c **** }
+ 656              		.loc 1 198 1 is_stmt 0 view .LVU128
+ 657 000a 4FF0FF30 		mov	r0, #-1
+ 658 000e 08BD     		pop	{r3, pc}
+ 659              		.cfi_endproc
+ 660              	.LFE42:
+ 662              		.section	.text._execve,"ax",%progbits
+ 663              		.align	1
+ 664              		.global	_execve
+ 665              		.syntax unified
+ 666              		.thumb
+ 667              		.thumb_func
+ 668              		.fpu fpv4-sp-d16
+ 670              	_execve:
+ 671              	.LVL46:
+ 672              	.LFB43:
+ 199:src/syscalls.c **** 
+ 200:src/syscalls.c **** int _execve(char *name, char **argv, char **env)
+ 201:src/syscalls.c **** {
+ 673              		.loc 1 201 1 is_stmt 1 view -0
+ 674              		.cfi_startproc
+ 675              		@ args = 0, pretend = 0, frame = 0
+ 676              		@ frame_needed = 0, uses_anonymous_args = 0
+ 677              		.loc 1 201 1 is_stmt 0 view .LVU130
+ 678 0000 08B5     		push	{r3, lr}
+ 679              	.LCFI11:
+ 680              		.cfi_def_cfa_offset 8
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 16
+
+
+ 681              		.cfi_offset 3, -8
+ 682              		.cfi_offset 14, -4
+ 202:src/syscalls.c **** 	errno = ENOMEM;
+ 683              		.loc 1 202 2 is_stmt 1 view .LVU131
+ 684 0002 FFF7FEFF 		bl	__errno
+ 685              	.LVL47:
+ 686              		.loc 1 202 8 is_stmt 0 view .LVU132
+ 687 0006 0C23     		movs	r3, #12
+ 688 0008 0360     		str	r3, [r0]
+ 203:src/syscalls.c **** 	return -1;
+ 689              		.loc 1 203 2 is_stmt 1 view .LVU133
+ 204:src/syscalls.c **** }
+ 690              		.loc 1 204 1 is_stmt 0 view .LVU134
+ 691 000a 4FF0FF30 		mov	r0, #-1
+ 692 000e 08BD     		pop	{r3, pc}
+ 693              		.cfi_endproc
+ 694              	.LFE43:
+ 696              		.global	environ
+ 697              		.global	__env
+ 698              		.section	.bss.__env,"aw",%nobits
+ 699              		.align	2
+ 702              	__env:
+ 703 0000 00000000 		.space	4
+ 704              		.section	.bss.heap_end.7386,"aw",%nobits
+ 705              		.align	2
+ 706              		.set	.LANCHOR0,. + 0
+ 709              	heap_end.7386:
+ 710 0000 00000000 		.space	4
+ 711              		.section	.data.environ,"aw"
+ 712              		.align	2
+ 715              	environ:
+ 716 0000 00000000 		.word	__env
+ 717              		.weak	__io_putchar
+ 718              		.weak	__io_getchar
+ 719              		.text
+ 720              	.Letext0:
+ 721              		.file 2 "/usr/local/Caskroom/gcc-arm-embedded/9-2019-q4-major/gcc-arm-none-eabi-9-2019-q4-major/ar
+ 722              		.file 3 "/usr/local/Caskroom/gcc-arm-embedded/9-2019-q4-major/gcc-arm-none-eabi-9-2019-q4-major/ar
+ 723              		.file 4 "/usr/local/Caskroom/gcc-arm-embedded/9-2019-q4-major/gcc-arm-none-eabi-9-2019-q4-major/ar
+ 724              		.file 5 "/usr/local/Caskroom/gcc-arm-embedded/9-2019-q4-major/gcc-arm-none-eabi-9-2019-q4-major/li
+ 725              		.file 6 "/usr/local/Caskroom/gcc-arm-embedded/9-2019-q4-major/gcc-arm-none-eabi-9-2019-q4-major/ar
+ 726              		.file 7 "/usr/local/Caskroom/gcc-arm-embedded/9-2019-q4-major/gcc-arm-none-eabi-9-2019-q4-major/ar
+ 727              		.file 8 "/usr/local/Caskroom/gcc-arm-embedded/9-2019-q4-major/gcc-arm-none-eabi-9-2019-q4-major/ar
+ 728              		.file 9 "/usr/local/Caskroom/gcc-arm-embedded/9-2019-q4-major/gcc-arm-none-eabi-9-2019-q4-major/ar
+ 729              		.file 10 "/usr/local/Caskroom/gcc-arm-embedded/9-2019-q4-major/gcc-arm-none-eabi-9-2019-q4-major/a
+ 730              		.file 11 "/usr/local/Caskroom/gcc-arm-embedded/9-2019-q4-major/gcc-arm-none-eabi-9-2019-q4-major/a
+ 731              		.file 12 "/usr/local/Caskroom/gcc-arm-embedded/9-2019-q4-major/gcc-arm-none-eabi-9-2019-q4-major/a
+ 732              		.file 13 "/usr/local/Caskroom/gcc-arm-embedded/9-2019-q4-major/gcc-arm-none-eabi-9-2019-q4-major/a
+ARM GAS  /var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s 			page 17
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 syscalls.c
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:18     .text.initialise_monitor_handles:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:26     .text.initialise_monitor_handles:0000000000000000 initialise_monitor_handles
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:40     .text._getpid:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:47     .text._getpid:0000000000000000 _getpid
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:62     .text._kill:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:69     .text._kill:0000000000000000 _kill
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:96     .text._exit:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:103    .text._exit:0000000000000000 _exit
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:130    .text._read:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:137    .text._read:0000000000000000 _read
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:192    .text._write:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:199    .text._write:0000000000000000 _write
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:251    .text._sbrk:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:258    .text._sbrk:0000000000000000 _sbrk
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:327    .text._sbrk:0000000000000034 $d
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:333    .text._close:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:340    .text._close:0000000000000000 _close
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:358    .text._fstat:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:365    .text._fstat:0000000000000000 _fstat
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:387    .text._isatty:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:394    .text._isatty:0000000000000000 _isatty
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:412    .text._lseek:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:419    .text._lseek:0000000000000000 _lseek
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:437    .text._open:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:444    .text._open:0000000000000000 _open
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:475    .text._wait:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:482    .text._wait:0000000000000000 _wait
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:509    .text._unlink:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:516    .text._unlink:0000000000000000 _unlink
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:543    .text._times:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:550    .text._times:0000000000000000 _times
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:568    .text._stat:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:575    .text._stat:0000000000000000 _stat
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:597    .text._link:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:604    .text._link:0000000000000000 _link
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:631    .text._fork:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:638    .text._fork:0000000000000000 _fork
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:663    .text._execve:0000000000000000 $t
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:670    .text._execve:0000000000000000 _execve
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:715    .data.environ:0000000000000000 environ
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:702    .bss.__env:0000000000000000 __env
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:699    .bss.__env:0000000000000000 $d
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:705    .bss.heap_end.7386:0000000000000000 $d
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:709    .bss.heap_end.7386:0000000000000000 heap_end.7386
+/var/folders/3v/0vdpwtnn553_pf4lcxv7_90h0000gn/T//ccMKOXMP.s:712    .data.environ:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+__errno
+__io_getchar
+__io_putchar
+end

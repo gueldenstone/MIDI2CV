@@ -1,0 +1,20 @@
+{
+  "configurations": [
+    {
+      "showDevDebugOutput": true,
+      "cwd": "${workspaceRoot}",
+      "executable": "./build/MIDI2CV.elf",
+      "name": "Debug STM32",
+      "request": "launch",
+      "type": "cortex-debug",
+      "servertype": "openocd",
+      "preLaunchTask": "make",
+      "device": "stlink",
+      "svdFile": "STM32F303.svd",
+      "configFiles": [
+        "interface/stlink-v2-1.cfg",
+        "target/stm32f3x.cfg"
+      ]
+    }
+  ]
+}

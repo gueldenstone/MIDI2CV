@@ -1,0 +1,116 @@
+{
+  
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "make",
+      "type": "shell",
+      "command": "make",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "type": "shell",
+      "label": "gcc build active file",
+      "command": "/usr/bin/gcc",
+      "args": [
+        "-g",
+        "${file}",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}"
+      ],
+      "options": {
+        "cwd": "/usr/bin"
+      }
+    },
+    {
+      "label": "Erase STM",
+      "type": "process",
+      "command": "STM32_Programmer_CLI",
+      "args": [
+        "-c port=SWD",
+        "-e all"
+      ],
+      "options": {
+        "cwd": "${workspaceRoot}"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "Program STM",
+      "type": "process",
+      "dependsOn": [
+        "make",
+        "Erase STM"
+      ],
+      "command": "STM32_Programmer_CLI",
+      "args": [
+        "-c",
+        "port=SWD",
+        "-w",
+        "${workspaceRoot}/build/MIDI2CV.elf"
+      ],
+      "options": {
+        "cwd": "${workspaceRoot}"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "Reset STM",
+      "type": "process",
+      "command": "STM32_Programmer_CLI",
+      "args": [
+        "-c",
+        "port=SWD",
+        "-rst"
+      ],
+      "options": {
+        "cwd": "${workspaceRoot}"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "Flash STM",
+      "type": "process",
+      "dependsOn": [
+        "Program STM"
+      ],
+      "command": "STM32_Programmer_CLI",
+      "args": [
+        "-c",
+        "port=SWD",
+        "-rst"
+      ],
+      "options": {
+        "cwd": "${workspaceRoot}"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [
+        "$gcc"
+      ]
+    }
+  ]
+}
