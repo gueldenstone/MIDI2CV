@@ -1,6 +1,6 @@
 [submodule "lib/stmlibxx"]
 	path = lib/stmlibxx
-	url = resona@git.resona-audio.com:lukas/stmlibxx.git
+	url = https://git.resona-audio.com/lukas/stmlibxx.git
 [submodule "lib/etl"]
 	path = lib/etl
 	url = https://github.com/ETLCPP/etl.git
