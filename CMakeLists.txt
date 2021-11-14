@@ -26,7 +26,7 @@ set_property(TARGET ${TARGET_NAME} PROPERTY CXX_STANDARD 17)
 # CMSIS
 stm32_fetch_cmsis(G4)
 find_package(CMSIS COMPONENTS STM32G4 REQUIRED)
-target_link_libraries(${TARGET_NAME} CMSIS::STM32::G474RE STM32::NoSys)
+target_link_libraries(${TARGET_NAME} CMSIS::STM32::G474RE STM32::Nano)
 stm32_print_size_of_target(${TARGET_NAME})
 
 # etl
