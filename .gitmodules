@@ -1,0 +1,9 @@
+[submodule "lib/stmlibxx"]
+	path = lib/stmlibxx
+	url = resona@git.resona-audio.com:lukas/stmlibxx.git
+[submodule "lib/etl"]
+	path = lib/etl
+	url = https://github.com/ETLCPP/etl.git
+[submodule "cmake"]
+	path = cmake
+	url = git@github.com:gueldenstone/stm32-cmake.git
