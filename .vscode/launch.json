@@ -8,6 +8,7 @@
 			"request": "launch",
 			"type": "cortex-debug",
 			"servertype": "openocd",
+			"preLaunchTask": "Build",
 			"interface": "swd",
 			"device": "STM32G474RE",
 			"svdFile": "${workspaceRoot}/debug/STM32G474xx.svd",
