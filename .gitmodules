@@ -1,9 +1,9 @@
 [submodule "lib/stmlibxx"]
 	path = lib/stmlibxx
-	url = https://git.resona-audio.com/lukas/stmlibxx.git
+	url = https://github.com/gueldenstone/stmlibxx.git
 [submodule "lib/etl"]
 	path = lib/etl
 	url = https://github.com/ETLCPP/etl.git
 [submodule "cmake"]
 	path = cmake
-	url = git@github.com:gueldenstone/stm32-cmake.git
+	url = https://github.com/gueldenstone/stm32-cmake.git
